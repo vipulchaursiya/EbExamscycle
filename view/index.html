@@ -9,37 +9,26 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.7/angular-ui-router.min.js"></script> 
-    <link rel="stylesheet" href="node_modules/angular-ui-notification/dist/angular-ui-notification.min.css">
-    
-    <script src="node_modules/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
-    
-    <script src="view/app.js"></script> 
-    
+         
+    <script src="app.js"></script>     
     </script>
 </head>
-
 <style>
 
 .width100{
     width: 100%;
 }
-/* .fixed{
-    position: fixed;
-} */
-
 .header
 {
-    height:50px;
+    height:100px;
     width:100%;
-    text-align: left;
+    text-align: center;
     background-color: rgb(168,208,141);
-    display:flex;
-    justify-content:start;
+    display:flex;    
   }
 .buttonwidth{
-    width:20%;
+    width:50%;
     background-color: darkolivegreen;
 }
 .container{
@@ -51,10 +40,10 @@
 <!-- apply our angular app to our site -->
 <body ng-app="ebExamModule">
             <div>
-               <md-card-header class="header fixed">
-                    <md-button class="buttonwidth" ui-sref="examCycle">COMPOSE
+                   <md-card-header class="header">
+                    <md-button class="buttonwidth" ui-sref="examCycle"><h3>Examcycle</h3>
                     </md-button>
-                    <md-button class="buttonwidth" ui-sref="examCalender">DRAFTS
+                    <md-button class="buttonwidth" ui-sref="examCalender"><h3>ExamCalender</h3>
                     </md-button>              
                 </md-card-header>
             </div>
