@@ -88,7 +88,7 @@ var examSchema = mongoose.Schema({
         url: { type: String },
         description: { type: String },
     }],
-    cycle: [{
+   cycle: [{
         _entrance_exam: {
             _institutions: [{
                 institute: { type: String },
@@ -294,5 +294,4 @@ var examSchema = mongoose.Schema({
         _adminApproval: {type: Boolean, default: true},
     }],*/
 });
-examSchema.plugin(deepPopulate);
 module.exports = mongoose.model('exam', examSchema);
