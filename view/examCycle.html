@@ -1,6 +1,113 @@
+{{examcycles.cycle}}
+<div ng-repeat="examcycle in examcycles">
+    <!-- <span>{{exam.allnames}}</span> -->
+    <span ng-repeat="cycle in examcycle.cycle"></span>
+    <span>{{cycle}}</span>
+    
+
+</div>
+
+
+<!-- <style>
+
+
+ .width100{
+     width:100%;
+ }
+ .padding20{
+     padding: 20px;
+ }
+ .titleFont{
+    font-size: 20px;
+ }
+ .bottomBorder{
+    border-bottom: 1px solid #20C39A;
+ }
+</style>
+
+<div layout="column" flex="85" layout-align="center center"
+     class="width100 padding20 titleFont bottomBorder" >All Exam Cycles</div>
+<div></div>      -->
+
+
+<!-- {{examcycle}}
+    {{examCycleData[2].cycle.}}
+<style>
+.jumbotron{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.boxsize{
+   border:1px solid black;
+   margin-left:20px;
+   height: 250px;
+  
+   padding: 0px;
+}
+.boxcontent{
+    /* border:1px solid black; */
+    height:10px;  
+    margin:0px;
+    padding: 0px;;
+    border: 1px solid black;
+}
+
+.headbox{
+    height: 30px;  
+    border-bottom: dashed red;
+}
+
+.formargin{
+    margin-left:10px;
+}
+</style>
+
+<div class="jumbotron">
+    <h2>All Exams Cycles</h2>
+ </div>  start repeating with examname  -->
+<!-- <div flex="100" ng-repeat="examcycle in examcycles"layout="column" >
+  <div class="" >{{examcycle.examname}}</div>
+     
+    <div flex="40" class="boxsize"  layout="column" ng-reapet=  "cycle in examcycle.cycles ">
+     <div layout="row" class="headbox">      
+        <div flex="30" class="formargin">cycle:</div>
+        <div flex="70"> {{cycle.name}}</div>
+   </div>
+   <div layout="row" class="headbox ">
+         <div flex="30" class="formargin">Year</div>
+         <div flex="70">{{cycle.Year}} </div>
+  </div>  
+  <div layout="column" class="headbox" ng-reapet="eventtypes in cycle.eventtype">
+        <div layout="row" class="headbox ">
+                <div flex="30" class="formargin">Written</div>
+                <div flex="70"  ng-reapet="date in cycle.eventtypes[eventType]">
+                  <div flex="100"> {{date}}</div>  
+                </div>
+         </div> 
+ </div>   
+ <div layout="column" class="headbox" ng-reapet="eventtypes in cycle.eventtype">
+        <div layout="row" class="headbox ">
+                <div flex="30" class="formargin">Registration</div>
+                <div flex="70"  ng-reapet="date in cycle.eventtypes[eventType]">
+                  <div flex="100"> {{date}}</div>  
+                </div>
+         </div> 
+ </div>     
+  
+       
+          
+</div>
+</div> -->
 
 
 
+
+<!-- <div layout="row" class="headbox ">
+        <div flex="30" class="formargin">Written</div>
+        <div flex="70">dates of </div>
+ </div> -->
 
 
 
