@@ -73,17 +73,17 @@ exam.aggregate([
 // })
 
 
-// var startTime = moment();
-// console.log("Starting the fetch");
-// exam.find({},{_id:0,'cycle':1}, function(err,allExams){
-//     var endTime = moment();
-//     var diff = endTime.diff(startTime, 'seconds');
-//     console.log("hey");
-//     console.log(diff);
-//     if(!err && allExams && allExams.length>0){
-//         console.log(allExams);
-//     }else{
-//         console.log("Error in retreiving the data!");
-//         console.log(err);
-//     }
-// });
+var startTime = moment();
+console.log("Starting the fetch");
+exam.find({},{_id:0,'cycle':1}, function(err,allExams){
+    var endTime = moment();
+    var diff = endTime.diff(startTime, 'seconds');
+    console.log("hey");
+    console.log(diff);
+    if(!err && allExams && allExams.length>0){
+        console.log(allExams);
+    }else{
+        console.log("Error in retreiving the data!");
+        console.log(err);
+    }
+});
