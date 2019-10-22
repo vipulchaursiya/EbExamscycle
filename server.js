@@ -29,48 +29,22 @@ app.get('/',function(req,res){
 });
 
 app.get('/api/examcycles', function(req,res){
-    console.log("in");
-    var startTime = moment();
-    // exam.find({},{_id:0,name:1, cycleNumber:1,year:1},
-exam.aggregate([
-{
- $group:{
-               _id:'$name',
-               cycleNumber: {$addToSet: '$cycle.cycleNumber'},
-               year: {$addToSet: '$cycle.year'},
-               registration: {$addToSet: '$cycle.examdates.registration.start._date',
-                               $addToSet: '$cycle.examdates.registration.end._date'},
-        
-               admitCard: {$addToSet: '$cycle.examdates.admitCard.start._date',
-                            $addToSet: '$cycle.examdates.admitCard.end._date'},
-        
-               examDate: {$addToSet: '$cycle.examdates.examDate.start._date',
-                          $addToSet: '$cycle.examdates.examDate.end._date'},
-        
-               writtenResultDate: {$addToSet: '$cycle.examdates.writtenResultDate.start._date',
-                                   $addToSet: '$cycle.examdates.writtenResultDate.end._date'},
-        
-               counselling: {$addToSet: '$cycle.examdates.counselling.start._date',
-                            $addToSet: '$cycle.examdates.counselling.end._date'},
-        
-               interview: {$addToSet: '$cycle.examdates.interview.start._date',
-                           $addToSet: '$cycle.examdates.interview.end._date'},
-  },
-}
-]).then(function(Doc){
- console.log(Doc.registration[0]);
- // res.json(Doc);
-}).catch(function(err){
- console.log("Error in retreiving the data!");
- console.log(err);
+ exam.find({},{_id:0,name:1, cycle:1}, function(err,allExams){
+    if(!err && allExams && allExams.length>0){
+       console.log(allExams);
+       res.json(allExams);
+     }else{
+       console.log("Error in retreiving the data!");
+       console.log(err);
+       res.json([]);
+     }
  });
- });
+ 
 
 
-// app.post('/api/examcalendar',function(req,res){
-
-//     exam.find({})
-// })
+app.post('/api/examcalendar',function(req,res){
+    
+})
 
 
 // var startTime = moment();
