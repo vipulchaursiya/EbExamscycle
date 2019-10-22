@@ -9,7 +9,7 @@ ebExamclient.controller('examCycleController',function($scope,$http,$state,Notif
     function examCycle(){  
         $http({ 
             method:'GET',
-            url:'http://localhost:8882/api/examCycle',
+            url:'http://localhost:8882/api/examcycles',
           
         })
         .then(function(response){     

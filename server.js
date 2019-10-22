@@ -3,7 +3,7 @@ const bodyparser=require('body-parser');
 const morgan=require('Morgan')
 const mongoose=require('mongoose');
 const moment=require('moment');
-let exam=require('./model/examschema.js');
+let exam=require('./app/model/exams');
 var app=express();
 app.use(express.static(__dirname));
 app.use(morgan('dev'));
@@ -12,7 +12,7 @@ app.listen(8882,function(){console.log("server is running on 8882")})
 app.use(morgan('dev'));
 
 //connect mongodb with mongoose.connect method
-mongoose.connect( 'mongodb://localhost:27017/exambazaar',{useNewUrlParser:true},function(err,connection) {    
+mongoose.connect( 'mongodb://localhost:27017/ebExamData',{useNewUrlParser:true},function(err,connection) {    
     if(!err){
         console.log("database connection established");
    }
@@ -58,7 +58,7 @@ exam.aggregate([
   },
 }
 ]).then(function(Doc){
- 
+   console.log(Doc)
    res.json(Doc);
 }).catch(function(err){
  console.log("Error in retreiving the data!");
