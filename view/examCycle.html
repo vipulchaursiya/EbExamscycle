@@ -1,117 +1,133 @@
-{{examcycles}}
+<style>
+    .width100{
+        width: 100%;
+    }
+    .sectionTitle{
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-bottom: 10px;       
+    }
+    .padding10{       
+        padding:10px;
+    }
+    .padding20{
+        padding:20px;
+    }
+    .titleFont{
+        font-size: 50px;
+        font-family: fantasy;;
+    }
+    .margin30{
+        margin: 50px;
+    }
+    .bgcolor{
+        background-color:cornflowerblue;
+    }
+    .bold {
+    font-weight: bold;
+    }
+    .borderB5 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid gainsboro;  
+   } 
+    .showbordergrey{
+        border: 1px solid  gainsboro;  
+    }
+    .btncolor{
+        background-color:#404040
+    }
+    .txtwhite{
+        color: white !important;
+        font: bold;
+        font-size: 20px;
+    }
+    .floatleft{
+       clear:both;        
+    }
+    .marginlr{
+       margin-left:20px;
+       margin-top: 10px;      
+    }
+    .marginl{
+        padding: 10px;
+    }
+    .paddingB10{
+        padding-bottom: 20px;
+    }
+ 
+</style>
+<body ng-app="ebExamModule">
+ 
+ 
 
-<div ng-repeat="examcycle in examcycles"> 
-    <span>{{examcycle}}</span>  <hr>
+<div layout="column" layout-align="center center" class="width100 padding10  titleFont" > 
+    ALL Exam  Cycles
 </div>
-
+<div layout="column" flex="90" layout-align="start start"  ng-repeat="thisExam in allExamCycles"   class="width100 margin30 padding10">                                                            
+    <div class="sectionTitle padding10 bold ">{{thisExam.name}}</div>
    
-    <!-- <span ng-repeat="cycle in examcycles"></span>
-    <span>{{cycle.cycleNumber}}</span>
+           <div layout="row" layout-align="start start" layout-wrap class="width100">
+        <div ng-repeat="thisCycle in thisExam.cycle"  flex="50" layout="column" layout-align="start start"  class="showbordergrey padding20 ">                    
+                <div layout="row" class="width100 padding10">
+                    <div flex="30" >Active</div>
+                    <div flex="70">{{thisCycle.active}}</div>                    
+                </div>                    
+                <div layout="row" class="width100 padding10 ">
+                    <div flex="30" >Exam Cycle</div>
+                    <div flex="70">{{thisCycle.name}}</div>                    
+                </div>  
+                <div layout="row" class="width100 padding10  ">
+                    <div flex="30" >Exam year</div>
+                    <div flex="70">{{thisCycle.year}}</div>                    
+                </div>                           
+                <div layout="row" class="width100 padding10 borderB5"  ng-repeat="examdates in thisCycle.examSteps">
+                    <div flex="30" >{{examdates.stepType}}</div>
+                    <div flex="70" >{{examdates.stepDate.dateRange.startDate | date:'medium'}}</div>                    
+               </div>            
+                              
+        </div>      
+    </div>
+</div>  
+ </body>
     
 
-</div> -->
-
-
-<!-- <style>
-
-
- .width100{
-     width:100%;
- }
- .padding20{
-     padding: 20px;
- }
- .titleFont{
-    font-size: 20px;
- }
- .bottomBorder{
-    border-bottom: 1px solid #20C39A;
- }
-</style>
-
-<div layout="column" flex="85" layout-align="center center"
-     class="width100 padding20 titleFont bottomBorder" >All Exam Cycles</div>
-<div></div>      -->
-
-
-<!-- {{examcycle}}
-    {{examCycleData[2].cycle.}}
-<style>
-.jumbotron{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.boxsize{
-   border:1px solid black;
-   margin-left:20px;
-   height: 250px;
-  
-   padding: 0px;
-}
-.boxcontent{
-    /* border:1px solid black; */
-    height:10px;  
-    margin:0px;
-    padding: 0px;;
-    border: 1px solid black;
-}
-
-.headbox{
-    height: 30px;  
-    border-bottom: dashed red;
-}
-
-.formargin{
-    margin-left:10px;
-}
-</style>
-
-<div class="jumbotron">
-    <h2>All Exams Cycles</h2>
- </div>  start repeating with examname  -->
-<!-- <div flex="100" ng-repeat="examcycle in examcycles"layout="column" >
-  <div class="" >{{examcycle.examname}}</div>
-     
-    <div flex="40" class="boxsize"  layout="column" ng-reapet=  "cycle in examcycle.cycles ">
-     <div layout="row" class="headbox">      
-        <div flex="30" class="formargin">cycle:</div>
-        <div flex="70"> {{cycle.name}}</div>
-   </div>
-   <div layout="row" class="headbox ">
-         <div flex="30" class="formargin">Year</div>
-         <div flex="70">{{cycle.Year}} </div>
-  </div>  
-  <div layout="column" class="headbox" ng-reapet="eventtypes in cycle.eventtype">
-        <div layout="row" class="headbox ">
-                <div flex="30" class="formargin">Written</div>
-                <div flex="70"  ng-reapet="date in cycle.eventtypes[eventType]">
-                  <div flex="100"> {{date}}</div>  
-                </div>
-         </div> 
- </div>   
- <div layout="column" class="headbox" ng-reapet="eventtypes in cycle.eventtype">
-        <div layout="row" class="headbox ">
-                <div flex="30" class="formargin">Registration</div>
-                <div flex="70"  ng-reapet="date in cycle.eventtypes[eventType]">
-                  <div flex="100"> {{date}}</div>  
-                </div>
-         </div> 
- </div>     
-  
-       
+       <!-- <div >
           
-</div>
-</div> -->
+        <div class="btn btn-block btn-large btncolor txtwhite" ng-click="showHideFilter()" > 
+            <div ng-hide="IsVisible" ><i class="fa fa-plus-circle">&nbsp;Filter</i></div>
+            <div ng-show="IsVisible"><i class="fa fa-minus-circle">&nbsp;Filter</i></div>
+        </div><br>
+        <div ng-show = "IsVisible">
+           <div layout="row" layout="center center paddingB10 width100" layout-wrap>
+               <div  class="marginlr paddingB10 "> Date Range: </div>
+               <div>  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" class="marginl"></md-datepicker></div>
+               <div>  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" class="marginl"></md-datepicker></div>
+           </div>
+           <div class="marginlr">
+               <span>Event Type:&nbsp;</span>
+               <input type="checkbox" name="admitCard" id="admitCard" md-ink-ripple><span class="marginl">&nbsp;Admit Card</span>
+               <input type="checkbox" name="Counselling" id="Counselling"  ><span class="marginl">Counselling</span>
+               <input type="checkbox" name="Interview" id="Interview"  ><span class="marginl">Interview</span>
+               <input type="checkbox" name="registration" id="registration"  ><span class="marginl">Registration</span>
+               <input type="checkbox" name="Result" id="Result" ><span class="marginl">Result</span>
+               <input type="checkbox" name="Written" id="Written"><span class="marginl">Written</span>
+           </div>
+           <div  class="marginlr" layout="row" layout-wrap>
+                <span>Exam :&nbsp;</span>
+            <div ng-repeat="thisExam in allExamCycles">
+               <input type="checkbox" name="Written" ng-checked="checkall" id="{{thisExam.name}}"><span class="marginl">{{thisExam.name}}</span>
+                                                
+            </div>
+            <input type='button' id='but_checkall' value='select all' ng-click='checkAll()'>&nbsp;  
+            <input type='button' id='but_uncheckall' value='Unselect all' ng-click='uncheckAll()'><br/>   
+           </div>
+        </div> 
+    </div></div>  ng-repeat="examdates in thisCycle.examSteps" -->
 
 
 
 
-<!-- <div layout="row" class="headbox ">
-        <div flex="30" class="formargin">Written</div>
-        <div flex="70">dates of </div>
- </div> -->
 
 
 
@@ -128,16 +144,26 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+ <!-- <div layout="row" class="width100 padding10 borderB5">
+        <div flex="30">AdmitCard</div>
+        <div flex="70"  class="badge badge-pill badge-secondary">{{thisCycle.examdates.admitCard.end._date |date:'medium'}}</div>                    
+    </div>
+    <div layout="row" class="width100 padding10 borderB5">
+         <div flex="30" >Result</div>
+         <div flex="70"  class="badge badge-pill badge-secondary">{{thisCycle.examdates.finalResultDate.start._date |date:'medium'}}</div>                    
+    </div>
+    <div layout="row"  class="width100 padding10 borderB5">
+        <div flex="30">Registration</div>
+        <div flex="70"  class="badge badge-pill badge-secondary">{{thisCycle.examdates.registration.start._date  | date:'medium'}}</div>                    
+    </div>
+    <div layout="row" class="width100 padding10 borderB5">
+        <div flex="30" >Counselling</div>
+        <div flex="70"  class="badge badge-pill badge-secondary">{{thisCycle.examdates.counselling.start._date  |date:'medium'}}</div>                    
+    </div>  
+    <div layout="row" class="width100 padding10 borderB5">
+        <div flex="30" >Interview</div>
+        <div flex="70"  class="badge badge-pill badge-secondary">{{thisCycle.examdates.interview.start._date |date:'medium'}}</div>                    
+    </div> -->
 
 
 

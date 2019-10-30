@@ -31,13 +31,9 @@ app.get('/',function(req,res){
 app.get('/api/examcycles', function(req,res){    
     exam.find({},{name:1, cycle:1}, function(err,allExams){
         if(!err && allExams && allExams.length>0){
-           console.log(allExams);
            res.json(allExams);
          }else{
-           console.log("Error in retreiving the data!");
-           console.log(err);
            res.json([]);
          }
      });
-
 });

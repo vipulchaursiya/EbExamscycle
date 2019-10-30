@@ -9,6 +9,10 @@
        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
        <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.7/angular-ui-router.min.js"></script> 
        <link rel="stylesheet" href="node_modules/angular-ui-notification/dist/angular-ui-notification.min.css">
@@ -36,41 +40,28 @@
 }
 .container{
     margin-top: 30px;
+    width: 100%;
+}
+.showBorder{
+    border: 1px solid red;
 }
 
 </style>
 
 <!-- apply our angular app to our site -->
 <body ng-app="ebExamModule">
-            <div>
-                   <md-card-header class="header">
-                    <md-button class="buttonwidth" ui-sref="examCycle"><h3>Examcycle</h3>
-                    </md-button>
-                    <md-button class="buttonwidth" ui-sref="examCalender"><h3>ExamCalender</h3>
-                    </md-button>              
-                </md-card-header>
-            </div>
+    <div>
+        <md-card-header class="header">
+            <md-button class="buttonwidth" ui-sref="examCycle"><h3>Examcycle</h3>
+            </md-button>
+            <md-button class="buttonwidth" ui-sref="examCalender"><h3>ExamCalender</h3>
+            </md-button>              
+        </md-card-header>
+    </div>
 
-
-    <!-- <div>
-    <div layout="row" layout="start start" class=" width100">
-        <div flex="25" class=" fixed" layout="column">
-            <div class="sidePaneElement"  layout="row" layout-align="center center"> 
-                <md-button class="button" ui-sref="send">COMPOSE</md-button>
-            </div>
-
-            <div class="sidePaneElement" layout="row" layout-align="center center"> 
-                <md-button class="button" ui-sref="draft">DRAFTS</md-button >
-            </div>
-
-            <div class="sidePaneElement" layout="row" layout-align="center center"> 
-              <md-button class="button" ui-sref="sent">SENT EMAILS</md-button >
-            </div>   
-        </div>
-     -->
-  <div class="container">
- <div ui-view> </div>
-  </div>
+    <div class="container showBorder">
+        <div ui-view></div>
+    </div>
 
 </body>
 </html>
